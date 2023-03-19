@@ -1,7 +1,6 @@
 import React from "react";
 
-const today = new Date();
-const currentYear = today.getFullYear();
+const currentYear = new Date().getFullYear();
 
 function Footer() {
     return (
