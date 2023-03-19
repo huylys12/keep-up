@@ -5,16 +5,19 @@
 }
 html {
   font-family: "Montserrat", sans-serif;
+  width: 100%;
+
 }
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  padding: 0 16px;
+  width: 100%;
 }
 
 header {
-  background-color: #f5ba13;
-  margin: auto -16px;
+  background-color: #BFACE2;
+  width: 100%;
+  margin: auto ;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -39,11 +42,11 @@ footer p {
 .note {
   background: #fff;
   border-radius: 7px;
-  box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
+  padding: 20px;
   width: 240px;
   margin: 16px;
   float: left;
+  border: 1px solid #ddd;
 }
 .note h1 {
   font-size: 1.1em;
@@ -60,7 +63,7 @@ footer p {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f5ba13;
+  color: #655DBB;
   border: none;
   width: 36px;
   height: 36px;
@@ -91,7 +94,7 @@ form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f5ba13;
+  background: #655DBB;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -100,4 +103,28 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.scrollable-content {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.sidebar {
+  background-color: #655DBB;
+  min-height: 100vh;
+}
+
+.nav-link {
+  color: #343a40;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #17a2b8;
 }

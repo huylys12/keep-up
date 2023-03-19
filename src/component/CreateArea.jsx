@@ -4,14 +4,14 @@ import Fab from "@mui/material/Fab";
 import Zoom from "@mui/material/Zoom";
 
 function CreateArea(props) {
-  const [isExpanded, setExpanded] = useState(false);
+  const [expandedRow, setExpandedRow] = useState(1);
 
   const [note, setNote] = useState({
     title: "",
     content: ""
   });
 
-  function handleChange(event) {
+  function handleChange(event) {    
     const { name, value } = event.target;
 
     setNote(prevNote => {
@@ -28,34 +28,38 @@ function CreateArea(props) {
       title: "",
       content: ""
     });
+    setExpandedRow(1);
     event.preventDefault();
   }
 
   function expand() {
-    setExpanded(true);
+    setExpandedRow(3);
   }
 
   return (
     <div>
       <form className="create-note">
-        {isExpanded && (
+        {expandedRow !== 1 && (
           <input
+            className="bold"
             name="title"
             onChange={handleChange}
             value={note.title}
             placeholder="Title"
+            maxLength={100}
           />
         )}
 
         <textarea
           name="content"
+          className="scrollable-content"
           onClick={expand}
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          rows={isExpanded ? 3 : 1}
+          rows={expandedRow}
         />
-        <Zoom in={isExpanded}>
+        <Zoom in={expandedRow !== 1}>
           <Fab onClick={submitNote}>
             <AddIcon />
           </Fab>

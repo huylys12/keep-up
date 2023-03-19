@@ -3,18 +3,22 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
+import Sidebar from "./Sidebar";
+import {Row, Col } from "react-bootstrap";
 
 function App() {
   const [notes, setNotes] = useState([]);
 
   function addNote(newNote) {
-    setNotes(prevNotes => {
-      return [...prevNotes, newNote];
-    });
+    if (newNote.title !== "" || newNote.content !== "") {
+      setNotes((prevNotes) => {
+        return [...prevNotes, newNote];
+      });
+    }
   }
 
   function deleteNote(id) {
-    setNotes(prevNotes => {
+    setNotes((prevNotes) => {
       return prevNotes.filter((noteItem, index) => {
         return index !== id;
       });
@@ -24,18 +28,25 @@ function App() {
   return (
     <div>
       <Header />
-      <CreateArea onAdd={addNote} />
-      {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={index}
-            id={index}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={deleteNote}
-          />
-        );
-      })}
+        <Row>
+          <Col lg={3}>
+            <Sidebar />
+          </Col>
+          <Col lg={9}>
+            <CreateArea onAdd={addNote} />
+            {notes.map((noteItem, index) => {
+              return (
+                <Note
+                  key={index}
+                  id={index}
+                  title={noteItem.title}
+                  content={noteItem.content}
+                  onDelete={deleteNote}
+                />
+              );
+            })}
+          </Col>
+        </Row>
       <Footer />
     </div>
   );
