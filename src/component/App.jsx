@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import Note from "./Note";
 import CreateArea from "./CreateArea";
 import Sidebar from "./Sidebar";
-import {Row, Col } from "react-bootstrap";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -26,28 +25,29 @@ function App() {
   }
 
   return (
-    <div>
-      <Header />
-        <Row>
-          <Col lg={3}>
-            <Sidebar />
-          </Col>
-          <Col lg={9}>
-            <CreateArea onAdd={addNote} />
-            {notes.map((noteItem, index) => {
-              return (
-                <Note
-                  key={index}
-                  id={index}
-                  title={noteItem.title}
-                  content={noteItem.content}
-                  onDelete={deleteNote}
-                />
-              );
-            })}
-          </Col>
-        </Row>
-      <Footer />
+    <div className="wrapper d-flex align-items-stretch">
+      {/* <Header /> */}
+      <Sidebar />
+      <div id="content" class="p-4 p-md-5 pt-5">
+        <CreateArea onAdd={addNote} />
+          {notes.map((noteItem, index) => {
+            return (
+              <Note
+                key={index}
+                id={index}
+                title={noteItem.title}
+                content={noteItem.content}
+                onDelete={deleteNote}
+              />
+            );
+          })}
+        
+      </div>
+
+      
+          
+
+      {/* <Footer /> */}
     </div>
   );
 }
