@@ -25,7 +25,12 @@ function Sidebar() {
         <ul className="list-unstyled components mb-5">
           <li className="active">
             <a href="#">
-              <span className="fa fa-home mr-3"></span> Home
+              <span className="fa fa-pencil-square-o mr-3"></span> Note
+            </a>
+          </li>
+          <li className="active">
+            <a href="#">
+              <span className="fa fa-list-ul mr-3"></span> To-do List
             </a>
           </li>
         </ul>
